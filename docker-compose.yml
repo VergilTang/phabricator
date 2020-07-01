@@ -19,7 +19,7 @@ services:
      - MYSQL_PASS=phabricator
      - PHABRICATOR_REPOSITORY_PATH=/repos
      - PHABRICATOR_HOST=myphabricator.tc.com
-    image: redpointgames/phabricator
+    image: vergils/phabricator
   mysql:
     restart: always
     volumes:

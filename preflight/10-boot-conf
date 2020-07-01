@@ -68,7 +68,7 @@ if [ -f /config/script.letsencrypt ]; then
   SCRIPT_AFTER_LETS_ENCRYPT=/config/script.letsencrypt
 fi
 
-if [ -f /config/letsencrypt.config ]; then 
+if [ -f /config/letsencrypt.config ]; then
   . /config/letsencrypt.config
   if [ "$LETS_ENCRYPT" == "true" ]; then
     SSL_TYPE="letsencrypt"
@@ -133,7 +133,7 @@ source /config.saved
 sed -i "s/PHABRICATOR/$PHABRICATOR_VCS_USER/g" /etc/passwd
 sed "s/__PHABRICATOR_VCS_USER__/$PHABRICATOR_VCS_USER/g" /etc/phabricator-ssh/sshd_config.phabricator.template > /etc/phabricator-ssh/sshd_config.phabricator
 sed "s/__PHABRICATOR_VCS_USER__/$PHABRICATOR_VCS_USER/g" /etc/phabricator-ssh/phabricator-ssh-hook.sh.template > /etc/phabricator-ssh/phabricator-ssh-hook.sh
-sed "s/__PHABRICATOR_VCS_USER__/$PHABRICATOR_VCS_USER/g" /etc/php5/fpm/php-fpm.conf.template > /etc/php5/fpm/php-fpm.conf
+sed "s/__PHABRICATOR_VCS_USER__/$PHABRICATOR_VCS_USER/g" /etc/php7/fpm/php-fpm.conf.template > /etc/php7/fpm/php-fpm.conf
 chmod 755 /etc/phabricator-ssh/phabricator-ssh-hook.sh
 
 # Set up Phabricator
@@ -258,7 +258,7 @@ unset APHLICT_PORT
 popd
 
 if [ "$ENABLE_APCU" == "true" ]; then
-  cat >/etc/php5/conf.d/apcu.ini <<EOF
+  cat >/etc/php7/conf.d/apcu.ini <<EOF
 extension=apcu.so
 EOF
 fi
@@ -282,4 +282,3 @@ if [ "$SCRIPT_AFTER_MIGRATION" != "" ]; then
   $SCRIPT_AFTER_MIGRATION
   popd
 fi
-
